@@ -1,0 +1,29 @@
+openapi: '3.0.2'
+info:
+  title: API Title
+  version: '1.0'
+servers:
+  - url: https://api.server.test/v1
+paths:
+  /iseven/{number}:
+    get:
+      parameters:
+        - name: number
+          schema: 
+            type: integer
+          in: path
+          required: true
+      responses:
+        '200':
+          description: respond with a boolean informing if number is even
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IsEvenResponse'
+components:
+  schemas:
+    IsEvenResponse:
+      type: object
+      properties:
+        IsEven: 
+          type: boolean
